@@ -1,0 +1,44 @@
+FUNCTION transferPulsa
+    PRINT "Masukan nomor tujuan"
+    INPUT nomor
+
+    PRINT "Pulsa anda saat ini Rp78000"
+    PRINT "Masukan nominal pengiriman"
+    INPUT nominal
+
+    IF nominal TO INTEGER > 78000 THEN
+        PRINT "Pengiriman gagal, pulsa tidak mencukupi"
+    ELSE
+        PRINT "Pengiriman berhasil"
+        PRINT "Pulsa anda saat ini Rp" + (78000 - nominal TO INTEGER)
+    END IF
+END FUNCTION
+
+START MAIN
+    DECLARE menu: INTEGER
+
+    PRINT "Mau iphone 13? hubungi 875*2#"
+    PRINT "1. Transfer pulsa"
+    PRINT "2. Minta pulsa"
+    PRINT "3. Auto TP"
+    PRINT "4. List outo TP"
+    PRINT "5. Cek kupon undian"
+    PRINT "Pilih layanan: "
+    INPUT menu
+
+    SWITCH menu
+        CASE 1:
+            PRINT "Transfer pulsa"
+            CALL transferPulsa()
+        CASE 2:
+            PRINT "Minta pulsa"
+        CASE 3:
+            PRINT "Auto TP"
+        CASE 4:
+            PRINT "List outo TP"
+        CASE 5:
+            PRINT "Cek kupon undian"
+        DEFAULT:
+            PRINT "Layanan tidak tersedia"
+    END SWITCH
+END MAIN
